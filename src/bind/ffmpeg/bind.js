@@ -62,6 +62,18 @@ function exec(..._args) {
   return Module["ret"];
 }
 
+function execProbe(...args) {
+  const args = ['ffprobe', ..._args];
+  try {
+    Module["_ffprobe"](args.length, stringsToPtr(args));
+  } catch (e) {
+    if (!e.message.startsWith("Aborted")) {
+      throw e;
+    }
+  }
+  return Module["ret"];
+}
+
 function setLogger(logger) {
   Module["logger"] = logger;
 }

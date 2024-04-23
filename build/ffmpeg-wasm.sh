@@ -43,12 +43,13 @@ CONF_FLAGS=(
   --pre-js src/bind/ffmpeg/bind.js        # extra bindings, contains most of the ffmpeg.wasm javascript code
   # ffmpeg source code
   src/fftools/cmdutils.c 
-  src/fftools/ffmpeg.c 
+  src/fftools/ffmpeg.c
+  src/fftools/ffprobe.c  # add probe support
   src/fftools/ffmpeg_filter.c 
   src/fftools/ffmpeg_hw.c 
   src/fftools/ffmpeg_mux.c 
   src/fftools/ffmpeg_opt.c 
-  src/fftools/opt_common.c 
+  src/fftools/opt_common.c
 )
 
 emcc "${CONF_FLAGS[@]}" $@
