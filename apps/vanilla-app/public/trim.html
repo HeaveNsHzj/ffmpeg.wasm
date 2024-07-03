@@ -31,7 +31,8 @@
         const { name } = files[0];
         await ffmpeg.writeFile(name, await fetchFile(files[0]));
         message.innerHTML = 'Start trimming';
-        await ffmpeg.exec(['-i', name, '-ss', '0', '-to', '1', 'output.mp4']);
+        const ret = await ffmpeg.exec(['-i', name, '-ss', '0', '-to', '1', 'output.mp4']);
+        console.log('ffmpeg exit code', ret);
         message.innerHTML = 'Complete trimming';
         const data = await ffmpeg.readFile('output.mp4');
 

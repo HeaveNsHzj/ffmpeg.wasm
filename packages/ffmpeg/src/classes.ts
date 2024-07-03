@@ -62,6 +62,7 @@ export class FFmpeg {
           case FFMessageType.MOUNT:
           case FFMessageType.UNMOUNT:
           case FFMessageType.EXEC:
+          case FFMessageType.PROBE:
           case FFMessageType.WRITE_FILE:
           case FFMessageType.READ_FILE:
           case FFMessageType.DELETE_FILE:
@@ -243,6 +244,27 @@ export class FFmpeg {
     this.#send(
       {
         type: FFMessageType.EXEC,
+        data: { args, timeout },
+      },
+      undefined,
+      signal
+    ) as Promise<number>;
+
+
+  public probe = (
+    /** ffmpeg command line args */
+    args: string[],
+    /**
+     * milliseconds to wait before stopping the command execution.
+     *
+     * @defaultValue -1
+     */
+    timeout = -1,
+    { signal }: FFMessageOptions = {}
+  ): Promise<number> =>
+    this.#send(
+      {
+        type: FFMessageType.PROBE,
         data: { args, timeout },
       },
       undefined,

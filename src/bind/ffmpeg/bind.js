@@ -62,10 +62,11 @@ function exec(..._args) {
   return Module["ret"];
 }
 
-function execProbe(...args) {
+function execProbe(..._args) {
   const args = ['ffprobe', ..._args];
   try {
-    Module["_ffprobe"](args.length, stringsToPtr(args));
+    const ret = Module["_ffprobe"](args.length, stringsToPtr(args));
+    return ret;
   } catch (e) {
     if (!e.message.startsWith("Aborted")) {
       throw e;
@@ -133,6 +134,7 @@ Module["printErr"] = printErr;
 Module["locateFile"] = _locateFile;
 
 Module["exec"] = exec;
+Module["probe"] = execProbe;
 Module["setLogger"] = setLogger;
 Module["setTimeout"] = setTimeout;
 Module["setProgress"] = setProgress;

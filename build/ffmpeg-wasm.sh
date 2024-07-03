@@ -44,7 +44,7 @@ CONF_FLAGS=(
   # ffmpeg source code
   src/fftools/cmdutils.c 
   src/fftools/ffmpeg.c
-  src/fftools/ffprobe.c  # add probe support
+  src/fftools/probe.c # add probe support
   src/fftools/ffmpeg_filter.c 
   src/fftools/ffmpeg_hw.c 
   src/fftools/ffmpeg_mux.c 
