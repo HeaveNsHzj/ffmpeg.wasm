@@ -1798,7 +1798,7 @@ int ffprobe(int argc, char **argv) {
   input_filename = argv[1];
   output_filename = argv[2];
 
-  printf("input: %s, output: %s", input_filename, output_filename);
+  // printf("input: %s, output: %s", input_filename, output_filename);
   w = registered_writers[0];
   if ((ret = writer_open(&wctx, w, w_args,
                         sections, FF_ARRAY_ELEMS(sections), output_filename)) >= 0) {

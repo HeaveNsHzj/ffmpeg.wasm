@@ -61,8 +61,8 @@
 #include "libpostproc/postprocess.h"
 #include "libpostproc/version.h"
 #include "libavfilter/version.h"
-// #include "cmdutils.h"
-// #include "opt_common.h"
+#include "cmdutils.h"
+#include "opt_common.h"
 
 #include "libavutil/thread.h"
 
